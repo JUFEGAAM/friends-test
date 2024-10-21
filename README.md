@@ -3,9 +3,9 @@
 **To-Do List**
 
 ```
-[ ] Create/Style HomePage and add start test button.
+[x] Create HomePage and add start test button.
 
-[ ] Create/Style Questions Page .
+[ ] Create Questions Page.
 
 [ ] Create Questions.
 
@@ -17,5 +17,7 @@
 
 [ ] At the end get all the values and extract which friend you are.
 
-[ ] Finish adding stuff to make the page look better.
+[ ] Style HomePage and add start test button.
+
+[ ] Style Questions Page.
 ```
