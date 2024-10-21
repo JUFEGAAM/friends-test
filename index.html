@@ -1,23 +1,34 @@
 <!DOCTYPE html css>
 <html lang=en>
     <html>
-        <head link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        <head>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
             <meta name="viewport" content="width=devide-width, initial-scale=1.0">
             <title>Que Amigo Soy?</title>
             <style>
                h1 {
                 text-align: center;
-                font-family: "Nunito", sans-serif;
-                font-size: 50px;
+                font-family: "Notable", sans-serif;
+                font-size: 75px;
+                letter-spacing: 3px;
                 margin-bottom: 45px;
-                margin-top: 33px;
-                color: skyblue;
-                text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+                margin-top: 200px;
+                color:  #2D2D2D;
+                text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+                animation: float 3s ease-in-out infinite;
+               }
+               @keyframes float {
+                0%, 100% {
+                    transform: translateY(0px);
+                }
+                50% {
+                    transform: translateY(-10px);
+                }
                }
                body {
-                background-color: #e0f7fa;
+                background-color: #F9F9F9;
                }
                .panel {
                 background-color: #ffffff;
@@ -32,14 +43,45 @@
                 font-size: 30px;
                 margin: 40px;
                }
+               .question {
+                display: none;
+               }
+               .home-container {
+                text-align: center;
+               }
+               .start-btn {
+                margin-top: 75px;
+                font-family: "Notable", sans-serif;
+                color: #F3CFC9;
+                font-size: 50px;
+                margin: 30px;
+                border: none;
+                padding: 20px 70px;
+                border-radius: 10px;
+                border-color:  #F3CFC9;
+                background-color: #2D2D2D;
+                transition: background-color 0.3s, box-shadow 0.2s, transform 1s;
+               }
+               .start-btn:hover {
+                background-color: #F3CFC9; /* Color de fondo al pasar el mouse */
+                color: #2D2D2D;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+                transform: scale(1.05);
+               }
+               .start-btn:active {
+                background-color: #cfaea9;
+                transform: scale(1);
+
+               }
             </style>
         </head>
         <body>
-            <main>
-                <h1>Que Amigo Soy?</h1>
-            </main>
-
-            <div class="panel">
+            <div id="homepage" class="home-container">
+                <h1>Que Amigo Eres?</h1>
+                <button id="start-test" class="start-btn">Start</button>
+            </div>
+            <div id="test-panel" class="panel" style="display:none;">
+                <div id="question1" class="question">
                 <h2 class="question1">Tu amigo/a se tropieza, ¿cómo reaccionas?</h2>
                 <ul>
                     <li>
@@ -58,6 +100,8 @@
                         </label>
                     </li>
                 </ul>
+                </div>
+                <div id="question2" class="question">
                 <h2 class="question2">Como tienes el pelo?</h3>
                 <ul>
                     <li>
@@ -76,6 +120,8 @@
                         </label>
                     </li>
                 </ul>
+            </div>
+            <div id="question3" class="question">
                 <h2 class="question3"> Como reaccionas si tu amigo/a te cuenta un problema?</h2>
                     <ul>
                         <li>
@@ -94,6 +140,8 @@
                             </label>
                         </li>
                     </ul>
+                    </div>
+                    <div id="question4" class="question">
                     <h2 class="question4"> Estas discutiendo con alguien, como actuas?</h2>
                     <ul>
                         <li>
@@ -112,6 +160,8 @@
                             </label>
                         </li>
                     </ul>
+                    </div>
+                    <div id="question5" class="question">
                     <h2 class="question5"> Eres bueno guardando secretos?</h2>
                     <ul>
                         <li>
@@ -135,6 +185,8 @@
                             </label>
                         </li>
                     </ul>
+                    </div>
+                    <div id="question6" class="question">
                     <h2 class="question6"> Llevas algun accesorio?</h2>
                     <ul>
                         <li>
@@ -158,21 +210,14 @@
                             </label>
                         </li>
                     </ul>
+                    </div>
             </div>
             <script>
-                let amigos = [
-                    { name: "Sergi", percentage: 0},
-                    { name: "Carlos", percentage: 0},
-                    { name: "Ruben", percentage: 0},
-                    { name: "Quimey", percentage: 0},
-                    { name: "Carla", percentage: 0},
-                    { name: "Erika", percentage: 0},
-                    { name: "Joan", percentage: 0},
-                    { name: "Marcos", percentage: 0},
-                    { name: "Dani", percentage: 0},
-                    { name: "Yago", percentage: 0},
-                    { name: "Juan F.", percentage: 0},
-                ];
+                document.getElementById("start-test").addEventListener("click", function() {
+                    document.getElementById("homepage").style.display = "none";
+                    document.getElementById("test-panel").style.display = "block";
+                    document.getElementById("question1").style.display = "block";
+                });
             </script>
         </body>
     </html>
