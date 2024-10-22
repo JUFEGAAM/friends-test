@@ -31,13 +31,13 @@
                 background-color: #F9F9F9;
                }
                .panel {
-                background-color: #ffffff;
+                background-color: #F9F9F9;
                 border-radius: 13px;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                padding: 250px;
+                padding: 80px;
                 width: 100%;
-                max-width: 500px;
-                margin: -20px  auto;
+                max-width: 700px;
+                margin: 250px  auto;
                }
                h2 {
                 font-size: 30px;
@@ -72,6 +72,15 @@
                 background-color: #cfaea9;
                 transform: scale(1);
 
+               }
+               #test-panel {
+                display: none;
+                opacity: 0;
+                transition: opacity 1s ease-in-out;
+               }
+               #test-panel.show {
+                display: block;
+                opacity: 1s;
                }
             </style>
         </head>
@@ -210,14 +219,32 @@
                             </label>
                         </li>
                     </ul>
+                    <button id="next-button" class="next-btn" style="display:none;">Next</button>
                     </div>
             </div>
             <script>
                 document.getElementById("start-test").addEventListener("click", function() {
                     document.getElementById("homepage").style.display = "none";
-                    document.getElementById("test-panel").style.display = "block";
+
+                    var testPanel = document.getElementById("test-panel");
+                    testPanel.style.display = "block";
+
+                    setTimeout(function() {
+                        testPanel.style.opacity = "1";
+                    }, 10);
+
                     document.getElementById("question1").style.display = "block";
                 });
+                let currentQuestion = 0;
+                const questions = document.querySelectorAll(".question");
+
+                function showQuestion(index) {
+                    if (index >= questions.lenght) {
+                        alert("!Has terminado el test!");
+                        document.getElementById("next-button").style.display = "none";
+                        return;
+                }
+                questions.forEach(q => q.style.display = "none")
             </script>
         </body>
     </html>
